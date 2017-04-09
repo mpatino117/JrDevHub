@@ -1,0 +1,25 @@
+﻿
+<h2>Programming Apprentices</h2>
+
+<h3>Directory</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+               SlackHandle
+            </th>
+        </tr>
+    </thead>
+    <tr ng-repeat="m in controller.members">
+        <td>{{m.lastName}}, {{m.firstName}}</td>
+        <td>{{m.email}}</td>
+        <td>{{m.slackHandle}}</td>
+    </tr>
+</table>

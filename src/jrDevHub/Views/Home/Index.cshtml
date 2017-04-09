@@ -1,0 +1,73 @@
+<html ng-app="jrDevHub">
+<head>
+    <title>jrDevHub</title>
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/bower_components/angular-material/angular-material.css" rel="stylesheet" />
+
+    <base href="/" />
+</head>
+<body ng-controller="AccountController as account">
+    <div class="container">
+     
+       
+        <!--Nav Bar-->
+        <div ng-controller="AccountController as account" ng-cloak>
+            <md-content class="md-padding">
+                <md-nav-bar md-selected-nav-item="currentNavItem"
+                            nav-bar-aria-label="navigation links">
+                    <md-nav-item md-nav-href="/" name="page1">
+                        Home
+                    </md-nav-item>
+                    <md-nav-item md-nav-href="/about" name="page2">
+                        About Us
+                    </md-nav-item>
+                    <md-nav-item md-nav-href="/directory" name="page3">
+                        Directory
+                    </md-nav-item>
+                    <md-nav-item md-nav-href="/login" name="page4" ng-show="!account.isLoggedIn()">
+                        LogIn
+                    </md-nav-item>
+                    <md-nav-item md-nav-href="#" name="page5" ng-click="account.logout()" ng-show="account.isLoggedIn()">
+                        LogOut
+                    </md-nav-item>
+                    <md-nav-item md-nav-href="#" name="page6">
+                        <div ng-show="account.isLoggedIn()">
+                            [{{account.getUserName()}}]
+                        </div> 
+                    </md-nav-item>
+                  
+                </md-nav-bar>
+
+            </md-content>
+        </div>
+       
+
+        <!----->
+
+        <ui-view></ui-view>
+    </div>
+
+    <!-- Library Files -->
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-touch/angular-touch.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="~/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="~/bower_components/angular-aria/angular-aria.js"></script>
+    <!-- App Files-->
+    <script src="/ngapp/app.js"></script>
+    <script src="/ngapp/controllers/controllers.js"></script>
+    <script src="/ngapp/services/services.js"></script>
+    <script src="~/ngApp/services/memberService.js"></script>
+    <script src="~/ngApp/controllers/memberController.js"></script>
+
+
+    <!-- Security -->
+    <script src="/ngapp/controllers/accountcontroller.js"></script>
+    <script src="/ngapp/services/accountservice.js"></script>
+
+</body>
+</html>
